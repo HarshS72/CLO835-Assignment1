@@ -48,7 +48,6 @@ resource "aws_subnet" "public_subnet" {
   )
 }
 
-# Security Group
 resource "aws_security_group" "web_sg" {
   name        = "websrv-SG"
   description = "SG for web server"
