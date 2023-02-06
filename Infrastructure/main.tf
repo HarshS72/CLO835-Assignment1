@@ -22,7 +22,7 @@ data "aws_vpc" "default" {
 resource "aws_instance" "web_server" {
   ami                  = data.aws_ami.websrv_amazon_linux.id
   key_name             = aws_key_pair.web_key.key_name
-  subnet_id = aws_subnet.public_subnet.id
+  subnet_id            = aws_subnet.public_subnet.id
   instance_type        = var.instance_type
   iam_instance_profile = "LabInstanceProfile"
   security_groups      = [aws_security_group.web_sg.id]
