@@ -40,6 +40,7 @@ resource "aws_key_pair" "web_key" {
 resource "aws_subnet" "public_subnet" {
   vpc_id     = data.aws_vpc.default.id
   cidr_block = var.public_subnet_cidrs
+  map_public_ip_on_launch = true
   tags = merge(
     var.default_tags, {
       Name = "${var.prefix}-Pubic-Subnet"
