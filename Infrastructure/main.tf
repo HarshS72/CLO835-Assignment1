@@ -38,8 +38,8 @@ resource "aws_key_pair" "web_key" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  vpc_id     = data.aws_vpc.default.id
-  cidr_block = var.public_subnet_cidrs
+  vpc_id                  = data.aws_vpc.default.id
+  cidr_block              = var.public_subnet_cidrs
   map_public_ip_on_launch = true
   tags = merge(
     var.default_tags, {
@@ -55,50 +55,50 @@ resource "aws_security_group" "web_sg" {
   vpc_id      = data.aws_vpc.default.id
 
   ingress {
-    description      = "HTTP from everywhere"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "HTTP from everywhere"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    description      = "SSH from everywhere"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "SSH from everywhere"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    description      = "HTTP from everywhere"
-    from_port        = 8080
-    to_port          = 8080
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "HTTP from everywhere"
+    from_port   = 8081
+    to_port     = 8081
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    description      = "HTTP from everywhere"
-    from_port        = 8081
-    to_port          = 8091
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "HTTP from everywhere"
+    from_port   = 8082
+    to_port     = 8082
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    description      = "HTTP from everywhere"
-    from_port        = 8082
-    to_port          = 8082
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    description = "HTTP from everywhere"
+    from_port   = 8083
+    to_port     = 8083
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
   tags = merge(
     var.default_tags, {
