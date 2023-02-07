@@ -4,7 +4,7 @@ variable "default_tags" {
     "App"   = "Web"
   }
   type        = map(any)
-  description = "Default tags to be applied to all AWS resources"
+  description = "Default tag for all AWS resources"
 }
 
 variable "prefix" {
@@ -22,5 +22,5 @@ variable "instance_type" {
 variable "public_subnet_cidrs" {
   default     = "172.31.96.0/20"
   type        = string
-  description = "Public subnet CIDRs"
+  description = "Public subnet CIDR block"
 }
